@@ -4,6 +4,8 @@ TRT çalışanları için macOS menü çubuğu uygulaması. PDKS'deki giriş saa
 
 Bu depo yalnızca kurulum ve sürüm dağıtımı içindir.
 
+> **Önemli: Kurum ağı veya VPN gerekir.** PDKS yalnızca TRT kurum ağından erişilebilir. Bilgisayarınız kurum ağına ya da kurum ağına bağlanan VPN'e bağlı değilse giriş-çıkış verileri PDKS'den alınamaz; uygulama "PDKS'ye ulaşılamadı" uyarısı gösterir ve son alınan veriler görünmeye devam eder. Ağa bağlandığınızda veriler bir sonraki yenilemede (veya **↻ Yenile** ile hemen) güncellenir.
+
 ## Kurulum
 
 Terminal'i açın ve şu komutu çalıştırın:
@@ -12,7 +14,7 @@ Terminal'i açın ve şu komutu çalıştırın:
 curl -fsSL https://raw.githubusercontent.com/mucahitpuren/trt-atlas/main/install.sh | bash
 ```
 
-Komut son sürümü indirir, `~/Applications/TRT Atlas.app` konumuna kurar ve açar. TRT Atlas simgesi menü çubuğunun sağ üstünde görünür. Simgeye tıklayıp ⚙︎ ile Tercihler'i açın ve PDKS kullanıcı adınızı ve şifrenizi girin.
+Komut son sürümü indirir, `~/Applications/TRT Atlas.app` konumuna kurar ve açar. TRT Atlas simgesi menü çubuğunun sağ üstünde görünür. Simgeye tıklayıp ⚙︎ ile Tercihler'i açın ve PDKS kullanıcı adınızı ve şifrenizi girin. **Bağlantıyı test et** düğmesinin çalışması için de kurum ağına veya VPN'e bağlı olmanız gerekir.
 
 TRT Mesai'nin (eski ad) kurulu olduğu bilgisayarlarda da aynı komutu çalıştırın. Eski sürüm kaldırılır; ayarlarınız ve PDKS şifreniz yeni sürüme taşınır.
 
