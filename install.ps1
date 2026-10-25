@@ -21,6 +21,21 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
+# Windows PowerShell 5.1, BOM'suz bir dosyayı sistemin ANSI kod sayfasıyla okuyor; bu dosyada
+# Türkçe karakterler olduğu için metinler bozuluyor ("dosyası" -> "dosyasÄ±"). Dosyanın başına
+# BOM koymak çözüm değil: bu betik asıl olarak `irm ... | iex` ile çalıştırılıyor ve orada baştaki
+# BOM karakteri "Write-Host diye bir komut yok" hatası veriyor. O yüzden, yalnızca bir dosyadan
+# çalıştırıldığında, betik kendini UTF-8 olarak tekrar okuyup çalıştırıyor.
+#
+# Denetim bozulmanın kendisine bakıyor: 'ğ' doğru okunduğunda tek karakter, ANSI olarak
+# okunduğunda iki karakter uzunluğunda oluyor. `irm` sunucunun bildirdiği UTF-8'i doğru
+# çözdüğü için o yolda bu koşul hiç sağlanmıyor.
+if ($PSCommandPath -and 'ğ'.Length -ne 1) {
+    $utf8 = [IO.File]::ReadAllText($PSCommandPath, (New-Object Text.UTF8Encoding $false))
+    & ([scriptblock]::Create($utf8)) @PSBoundParameters
+    return
+}
+
 $SetupUrl = 'https://github.com/mucahitpuren/trt-atlas/releases/latest/download/TRT-Atlas-Setup.exe'
 $AppName = 'TRT Atlas'
 
