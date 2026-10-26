@@ -1,10 +1,10 @@
 {
-  "version": "1.0.3",
-  "pub_date": "2026-10-26T05:11:26Z",
+  "version": "1.0.4",
+  "pub_date": "2026-10-26T07:03:02Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnErTFJUaUdZcnVHZEhWOTZGOGlyVi9ldDhwaHJ3K3RoZWxyV2ZVMVZ3dVZLWk4zNlk2REhzSUovQWZjWnZhMzNSWXRNK21abnRqcUJkTE9kMzJkUGdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyOTkxNDc2CWZpbGU6VFJUIEF0bGFzXzEuMC4zX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjAuMwozSCtTSnFLQU84WXRWU2dlVTl3RlcxNmNCUW5sN09xdUxBRVNSWlcxc2R5b3l6K3k1TUY1S25tNDFDY2ZEMTJ0Ulh4QnVPTVNVbGxlM0UzTmxyazZDQT09Cg==",
-      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v1.0.3/TRT-Atlas-Setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnZCcHBqSEJyUGlVRE1SMXZLbUs1SjlWQytkNXVTVG42M0ZrYzkrWm1xNDIreDkyOXU1M0Y3Mk5Cb0kvcERud1pRNmRqaDlzOUZxU2JRNU4wamZsMkFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyOTk4MTczCWZpbGU6VFJUIEF0bGFzXzEuMC40X3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjAuNApoY3RvNUkxcmtpMXNmb1o2MU9rUW93WFBPcjRabVA4djFFYmYvbGVhQjR6OWkyNW5lekg3WUhWMDRKTDc0NktkckZhL2pYd09RTzNsOHEycDZKbk9EQT09Cg==",
+      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v1.0.4/TRT-Atlas-Setup.exe"
     }
   }
 }
