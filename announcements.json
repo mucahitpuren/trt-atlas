@@ -1,0 +1,13 @@
+{
+  "published": "2026-11-05T10:15:28Z",
+  "announcements": [
+    {
+      "id": "a-20261105101528",
+      "level": "info",
+      "title": "Selam sana imparator!",
+      "body": "Bu bir test metnidir. Bildirimler çalışıyo mu diye bakıyorum :)",
+      "until": "2026-11-05T11:15:28Z",
+      "platforms": []
+    }
+  ]
+}
