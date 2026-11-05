@@ -29,6 +29,15 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
+# The app needs macOS 12 (Monterey) or later. Without this check an older Mac finished the
+# installation and then the app would not open, with an error that did not say why.
+MACOS_VERSION="$(sw_vers -productVersion 2>/dev/null || echo 0)"
+if (( ${MACOS_VERSION%%.*} < 12 )); then
+  echo "TRT Atlas macOS 12 (Monterey) veya daha yeni bir sürüm gerektirir. Bu Mac'te macOS $MACOS_VERSION yüklü." >&2
+  echo "Apple menüsü > Bu Mac Hakkında bölümünden macOS'u güncelleyebilirsiniz." >&2
+  exit 1
+fi
+
 TMP="$(mktemp -d)"
 MOUNT="$TMP/mnt"
 cleanup() {
@@ -94,4 +103,4 @@ open "$DEST"
 
 echo
 echo "Kurulum tamamlandı. TRT Atlas simgesi menü çubuğunun sağ üstünde görünür."
-echo "PDKS kullanıcı adı ve şifrenizi simgeye tıklayıp Tercihler'den girin."
+echo "İlk açılışta kurulum ekranı PDKS hesabınızı ve çalışma düzeninizi sorar; daha sonra simgeye tıklayıp Ayarlar'dan değiştirebilirsiniz."
