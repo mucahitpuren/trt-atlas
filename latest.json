@@ -1,10 +1,11 @@
 {
-  "version": "1.0.4",
-  "pub_date": "2026-10-26T07:03:02Z",
+  "version": "2.0.1",
+  "notes": "TRT Atlas 2.0.1\n\n- Yeni görünüm: Gün, Hafta ve Ay sekmeleri\n- Hafta görünümünde 40 saatlik haftalık hedef; bir gün erken çıkıp başka bir gün telafi ettiğinizde hafta tamamlanmış sayılır\n- Ay görünümünde takvim; önceki aylara ve haftalara geri gidebilirsiniz\n- İzin ve resmi tatilleri işaretleyebilirsiniz: güne sağ tıklayın\n- Mesai bittiğinde bildirim ve kısa bir kutlama\n- Yenilenen Ayarlar penceresi ve ilk kurulum ekranı\n- Sorun bildir artık e-posta ile, kayıt dosyası ekli\n- macOS 12 (Monterey) desteği",
+  "pub_date": "2026-11-05T09:52:30Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnZCcHBqSEJyUGlVRE1SMXZLbUs1SjlWQytkNXVTVG42M0ZrYzkrWm1xNDIreDkyOXU1M0Y3Mk5Cb0kvcERud1pRNmRqaDlzOUZxU2JRNU4wamZsMkFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyOTk4MTczCWZpbGU6VFJUIEF0bGFzXzEuMC40X3g2NC1zZXR1cC5leGUJdmVyc2lvbjoxLjAuNApoY3RvNUkxcmtpMXNmb1o2MU9rUW93WFBPcjRabVA4djFFYmYvbGVhQjR6OWkyNW5lekg3WUhWMDRKTDc0NktkckZhL2pYd09RTzNsOHEycDZKbk9EQT09Cg==",
-      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v1.0.4/TRT-Atlas-Setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdmlqOE5VUWlLbHBoUXMzR2dUQnU5Mm1MNlVTRGE5U2dUVTRCQ2RTUVFrc0o0Mmt5M2xnQWtjZVpPaTV2N0J2cldzMU5MQm9aUjMxUWZCT0dhYURkdlF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzODcyMzM5CWZpbGU6VFJUIEF0bGFzXzIuMC4xX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoyLjAuMQoraUpQQ1JVUmlIbzdWenlFVE5ORUIyK2tDcmlIeG9EaUFwSFlMU1Z6aUNkeGY0VlVVMENFZXA3Z0o5c1AzSDQzdGMrUk5DUkZSRzBramVjd3BnekhDUT09Cg==",
+      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v2.0.1/TRT-Atlas-Setup.exe"
     }
   }
 }
