@@ -7,7 +7,7 @@
 # olsa da SmartScreen uyarısına çoğu durumda takılmaz — tarayıcıdan indirilen dosyada takılır.
 # Bu, macOS tarafında curl'ün karantina etiketi eklememesiyle aynı mantık.
 #
-# Sonraki güncellemeler uygulamanın içinden gelir (Tercihler > Güncellemeler). Bu betik tekrar
+# Sonraki güncellemeler uygulamanın içinden gelir (Ayarlar > Genel > Güncellemeler). Bu betik tekrar
 # çalıştırılırsa da son sürüme günceller.
 #
 # İndirilmiş bir kurulum dosyasından kurmak için yolunu verin:
@@ -84,7 +84,7 @@ try {
 
     Write-Host ''
     Write-Host "Kurulum tamamlandı. $AppName simgesi sistem tepsisinde (saatin yanında) görünür."
-    Write-Host 'PDKS kullanıcı adı ve şifrenizi simgeye sağ tıklayıp Tercihler''den girin.'
+    Write-Host 'İlk açılışta kurulum ekranı PDKS hesabınızı ve çalışma düzeninizi sorar; daha sonra simgeye sağ tıklayıp Ayarlar''dan değiştirebilirsiniz.'
     Write-Host 'PDKS''ye ulaşmak için kurum ağına veya kurum VPN''ine bağlı olmanız gerekir.'
 }
 finally {
