@@ -1,11 +1,11 @@
 {
-  "version": "2.0.1",
-  "notes": "TRT Atlas 2.0.1\n\n- Yeni görünüm: Gün, Hafta ve Ay sekmeleri\n- Hafta görünümünde 40 saatlik haftalık hedef; bir gün erken çıkıp başka bir gün telafi ettiğinizde hafta tamamlanmış sayılır\n- Ay görünümünde takvim; önceki aylara ve haftalara geri gidebilirsiniz\n- İzin ve resmi tatilleri işaretleyebilirsiniz: güne sağ tıklayın\n- Mesai bittiğinde bildirim ve kısa bir kutlama\n- Yenilenen Ayarlar penceresi ve ilk kurulum ekranı\n- Sorun bildir artık e-posta ile, kayıt dosyası ekli\n- macOS 12 (Monterey) desteği",
-  "pub_date": "2026-11-05T09:52:30Z",
+  "version": "2.0.2",
+  "notes": "macOS 12 (Monterey) kullananlarda PDKS bağlantısı düzeltildi.\n- PDKS sunucusunun eksik gönderdiği bir sertifika yüzünden macOS 12'de hiçbir PDKS sayfası açılamıyordu; uygulama bunu kendisi tamamlıyor.\n- Ayarlar ve ilk kurulum ekranı macOS 12'de düzgün görünüyor.\n- Metin alanlarında kopyala, kes, yapıştır ve geri al kısayolları çalışıyor.\n- Şifre alanına, yazdığınız şifreyi gösterip gizleyen bir düğme eklendi.",
+  "pub_date": "2026-11-07T23:59:48Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdmlqOE5VUWlLbHBoUXMzR2dUQnU5Mm1MNlVTRGE5U2dUVTRCQ2RTUVFrc0o0Mmt5M2xnQWtjZVpPaTV2N0J2cldzMU5MQm9aUjMxUWZCT0dhYURkdlF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzODcyMzM5CWZpbGU6VFJUIEF0bGFzXzIuMC4xX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoyLjAuMQoraUpQQ1JVUmlIbzdWenlFVE5ORUIyK2tDcmlIeG9EaUFwSFlMU1Z6aUNkeGY0VlVVMENFZXA3Z0o5c1AzSDQzdGMrUk5DUkZSRzBramVjd3BnekhDUT09Cg==",
-      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v2.0.1/TRT-Atlas-Setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnVSOUNnT2JqSm4ydi9GTXBDQ0dZSnA1Z3RpOCtZMmdrOEtFV3JZZ0p6NEthSGMxSlY0M25EQmZzaVZNZnBHdDRPaDNWUkZKbSs5MTRqZ2tzNEdRTXdBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MDk1OTgwCWZpbGU6VFJUIEF0bGFzXzIuMC4yX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoyLjAuMgo0eXpreDZPemFPWWdUeUFQSWxGMWFkZTEzWWxZeHpZSlRkVURxeGNJUDd6Q0Z0SExXVitoQmJYQ09pQUJsVWJsREJzQWZPekdvWGNsc3RUUW14c0ZCdz09Cg==",
+      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v2.0.2/TRT-Atlas-Setup.exe"
     }
   }
 }
