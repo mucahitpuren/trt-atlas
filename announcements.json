@@ -1,12 +1,12 @@
 {
-  "published": "2026-11-06T03:27:50Z",
+  "published": "2026-11-09T05:04:38Z",
   "announcements": [
     {
-      "id": "a-20261106032750",
+      "id": "a-20261109050438",
       "level": "info",
-      "title": "Diz çöktüğümüzü görmek isteyen camiye gelsin!",
-      "body": "Hayırlı Cumalar :)",
-      "until": "2026-11-06T11:27:50Z",
+      "title": "Günaydınlar Türkiye'm!",
+      "body": "Gününüz aydın olsun! Haftasonu bi güncelleme çıktım. Eğer hala 1.0.X sürümlerini kullanıyosanız bi güncelleyin ki uygulamanın güzelliklerinden mahrum kalmayın.",
+      "until": "2026-11-09T08:04:38Z",
       "platforms": []
     }
   ]
