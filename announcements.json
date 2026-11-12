@@ -1,12 +1,12 @@
 {
-  "published": "2026-11-11T06:03:39Z",
+  "published": "2026-11-12T04:56:45Z",
   "announcements": [
     {
-      "id": "a-20261111060339",
-      "level": "info",
-      "title": "EFENDİM GÜ-NAY-DIN (Seda Sayan'ın Sesiyle)",
-      "body": "Ufak bir tebessüm etmen için sana günaydın demek istedim, iyi çalışmalar!",
-      "until": "2026-11-11T09:03:39Z",
+      "id": "a-20261112045645",
+      "level": "critical",
+      "title": "MacOS Kullanıcılarının Dikkatine",
+      "body": "Günaydın :)  Uygulamayı ilk kez kurduğunuzda ya da güncellediğinizde şifre ekranı art arda karşınıza çıkabilir. Buraya bilgisayarınızın şifresini girmeniz gerekiyor. Uygulama, TRT şifrenizi macOS anahtar zincirine kaydedip sonra oradan okuyabilmek için sizden birden fazla izin istiyor.  \"İzin ver\"e tıkladıktan sonra aynı ekran yeniden açılırsa şifreyi yanlış girmiş olmuyorsunuz. Uygulama yalnızca bir izin daha istiyor. Ekran her geldiğinde \"Her zaman izin ver\" seçeneğini seçin. Aksi halde uygulama PDKS sistemine erişemez.  Bir sonraki güncellemede bu sorun giderilecek ya da en aza indirilecek.",
+      "until": "2026-11-12T12:56:45Z",
       "platforms": []
     }
   ]
