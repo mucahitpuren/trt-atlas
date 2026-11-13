@@ -1,11 +1,11 @@
 {
-  "version": "2.0.2",
-  "notes": "macOS 12 (Monterey) kullananlarda PDKS bağlantısı düzeltildi.\n- PDKS sunucusunun eksik gönderdiği bir sertifika yüzünden macOS 12'de hiçbir PDKS sayfası açılamıyordu; uygulama bunu kendisi tamamlıyor.\n- Ayarlar ve ilk kurulum ekranı macOS 12'de düzgün görünüyor.\n- Metin alanlarında kopyala, kes, yapıştır ve geri al kısayolları çalışıyor.\n- Şifre alanına, yazdığınız şifreyi gösterip gizleyen bir düğme eklendi.",
-  "pub_date": "2026-11-07T23:59:48Z",
+  "version": "2.0.3",
+  "notes": "- macOS 14.4'ten eski sürümlerde PDKS'ye bağlanılamamasına yol açan sertifika sorunu giderildi. Kurum ağında veya VPN üzerinden bağlıyken uygulama artık PDKS verilerini sorunsuz şekilde alır.",
+  "pub_date": "2026-11-13T07:01:44Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnVSOUNnT2JqSm4ydi9GTXBDQ0dZSnA1Z3RpOCtZMmdrOEtFV3JZZ0p6NEthSGMxSlY0M25EQmZzaVZNZnBHdDRPaDNWUkZKbSs5MTRqZ2tzNEdRTXdBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0MDk1OTgwCWZpbGU6VFJUIEF0bGFzXzIuMC4yX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoyLjAuMgo0eXpreDZPemFPWWdUeUFQSWxGMWFkZTEzWWxZeHpZSlRkVURxeGNJUDd6Q0Z0SExXVitoQmJYQ09pQUJsVWJsREJzQWZPekdvWGNsc3RUUW14c0ZCdz09Cg==",
-      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v2.0.2/TRT-Atlas-Setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnBxRGFEVnRkZUNMRkNrc2o5T1c0RU9jVlZjZzNIY1BUdEJUd0oyNitKbzNOWVNNNDBEUEFmbzE1NG9hblYwcEhlNlJDbW1Gc3FZS0JPdytDdjRvNWdBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0NTUzMjk2CWZpbGU6VFJUIEF0bGFzXzIuMC4zX3g2NC1zZXR1cC5leGUJdmVyc2lvbjoyLjAuMwp3UXQyNFZUc3RJODVQaEhJSzBZY1paQTA1ZkN3Z2tnV2d2ZUlLTi8yL3JJT1Z4UW5kSXIrMmRxVDh2Q0pDem03dEVqcloyellobU1GMmpWM1gxbmhBdz09Cg==",
+      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v2.0.3/TRT-Atlas-Setup.exe"
     }
   }
 }
