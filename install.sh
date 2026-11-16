@@ -4,7 +4,7 @@
 #   curl -fsSL https://raw.githubusercontent.com/mucahitpuren/trt-atlas/main/install.sh | bash
 #
 # Son sürümün DMG'sini curl ile indirir ve uygulamayı ~/Applications'a kurar. curl ile indirilen
-# dosyalara karantina etiketi eklenmediği için, uygulama ad-hoc imzalı olsa da Gatekeeper'a
+# dosyalara karantina etiketi eklenmediği için, uygulama Apple onaylı bir imza taşımasa da Gatekeeper'a
 # takılmadan açılır ("Yine de Aç" adımı gerekmez). Kurulum ~/Applications'a yapılır: yönetici
 # izni istemez ve /Applications'taki Uygulama Yönetimi korumasına takılmaz.
 #
