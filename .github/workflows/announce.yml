@@ -1,0 +1,140 @@
+name: announce
+
+# Publishes a notice to every installed app (both platforms), or withdraws it: e.g. "PDKS'ye şu
+# an erişilemiyor" when the company's PDKS is down and people think the app is broken.
+#
+# Run it from the GitHub mobile app (Actions > announce > Run workflow) or from the TRT Atlas admin
+# panel, which starts it through the API. It lives in this public repository because Actions is
+# free here; it used to run in the private source repository. The apps read
+# announcements.json from the public repository every five minutes or so (GitHub caches the file
+# for about five more), show it as a notification once and as a band at the top of the window
+# until it is closed or expires. See macos/App/AnnouncementStore.swift and
+# windows/src-tauri/src/announcements.rs.
+#
+# The feed is signed with SPARKLE_PRIVATE_KEY (a secret of this repository), the key the DMGs and
+# pdks.js are signed with, and checked the way the apps check it before it is published. One notice is live at a time: publishing replaces the
+# previous one, withdrawing empties the feed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Ne yapılsın?'
+        type: choice
+        options: ['Yayımla', 'Kaldır']
+        default: 'Yayımla'
+      title:
+        description: 'Başlık (ör. PDKS''ye şu an erişilemiyor)'
+        type: string
+        default: ''
+      body:
+        description: 'Metin'
+        type: string
+        default: ''
+      level:
+        description: 'Önem'
+        type: choice
+        options: ['Uyarı', 'Bilgi', 'Kritik']
+        default: 'Uyarı'
+      hours:
+        description: 'Kaç saat gösterilsin?'
+        type: string
+        default: '8'
+      platform:
+        description: 'Hangi uygulamalar?'
+        type: choice
+        options: ['Hepsi', 'macOS', 'Windows']
+        default: 'Hepsi'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: announce
+  cancel-in-progress: false
+
+jobs:
+  announce:
+    # macOS because Sparkle's sign_update is a macOS binary: the same tool and key as the DMGs.
+    runs-on: macos-latest
+    env:
+      SPARKLE_VERSION: 2.10.0
+      PUBLIC_REPO: ${{ github.repository }}
+      # SUPublicEDKey from the app's Info.plist: what installed apps check the signature against.
+      PUBLIC_KEY: TrGUFDW56vQO/xZdGxcwZOM9s8gtaPkOXVnknfHFuP4=
+      # Inputs reach the script through the environment, never pasted into it.
+      ACTION: ${{ inputs.action }}
+      TITLE: ${{ inputs.title }}
+      BODY: ${{ inputs.body }}
+      LEVEL: ${{ inputs.level }}
+      HOURS: ${{ inputs.hours }}
+      PLATFORM: ${{ inputs.platform }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+
+      - name: Write announcements.json
+        run: |
+          set -euo pipefail
+          NOW="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          if [ "$ACTION" = "Kaldır" ]; then
+            jq -n --arg published "$NOW" '{published: $published, announcements: []}' > announcements.json
+            echo "withdrawing the current notice"
+          else
+            test -n "$TITLE$BODY" || { echo "Başlık veya metin girin."; exit 1; }
+            [[ "$HOURS" =~ ^[0-9]{1,3}$ ]] && [ "$HOURS" -ge 1 ] && [ "$HOURS" -le 168 ] \
+              || { echo "Süre 1 ile 168 saat arasında bir sayı olmalı."; exit 1; }
+            UNTIL="$(date -u -v+"${HOURS}"H +%Y-%m-%dT%H:%M:%SZ)"
+            case "$LEVEL" in Bilgi) LEVEL_ID=info ;; Kritik) LEVEL_ID=critical ;; *) LEVEL_ID=warning ;; esac
+            case "$PLATFORM" in macOS) PLATFORMS='["macos"]' ;; Windows) PLATFORMS='["windows"]' ;; *) PLATFORMS='[]' ;; esac
+            jq -n --arg published "$NOW" --arg id "a-$(date -u +%Y%m%d%H%M%S)" --arg level "$LEVEL_ID" \
+              --arg title "$TITLE" --arg body "$BODY" --arg until "$UNTIL" --argjson platforms "$PLATFORMS" \
+              '{published: $published, announcements: [{id: $id, level: $level, title: $title, body: $body,
+                until: $until, platforms: $platforms}]}' > announcements.json
+            echo "publishing until $UNTIL"
+          fi
+          cat announcements.json
+
+      - name: Sign with the Sparkle key
+        env:
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$SPARKLE_PRIVATE_KEY" || { echo "SPARKLE_PRIVATE_KEY secret is missing"; exit 1; }
+          curl -fsSL -o sparkle.tar.xz "https://github.com/sparkle-project/Sparkle/releases/download/$SPARKLE_VERSION/Sparkle-$SPARKLE_VERSION.tar.xz"
+          mkdir -p sparkle && tar -xf sparkle.tar.xz -C sparkle
+          KEY_FILE="$RUNNER_TEMP/sparkle_key"
+          printf '%s' "$SPARKLE_PRIVATE_KEY" > "$KEY_FILE"
+          SIGNATURE="$(./sparkle/bin/sign_update --ed-key-file "$KEY_FILE" -p announcements.json)"
+          rm -f "$KEY_FILE"
+          printf '%s\n' "$SIGNATURE" > announcements.json.sig
+          echo "SIGNATURE=$SIGNATURE" >> "$GITHUB_ENV"
+
+      # The apps verify with CryptoKit / ed25519-dalek against SUPublicEDKey; check it that way.
+      - name: Check the apps will accept the signature
+        run: |
+          set -euo pipefail
+          swift .github/scripts/verify-ed25519.swift "$PUBLIC_KEY" "$SIGNATURE" announcements.json
+
+      # This repository's own token (permissions: contents: write) writes the two files.
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          put() { # <path in the public repo> <local file>
+            local path="$1" file="$2" sha
+            sha="$(gh api "repos/$PUBLIC_REPO/contents/$path" --jq .sha 2>/dev/null || true)"
+            if [ -n "$sha" ]; then
+              gh api -X PUT "repos/$PUBLIC_REPO/contents/$path" -f message="$path: $ACTION" \
+                -f sha="$sha" -f content="$(base64 -i "$file")" --jq .commit.sha
+            else
+              gh api -X PUT "repos/$PUBLIC_REPO/contents/$path" -f message="$path: $ACTION" \
+                -f content="$(base64 -i "$file")" --jq .commit.sha
+            fi
+          }
+          # The feed first: until its signature lands the apps simply refuse it.
+          put announcements.json announcements.json
+          put announcements.json.sig announcements.json.sig
+          echo "done: $ACTION"
