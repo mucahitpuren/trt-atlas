@@ -1,11 +1,11 @@
 {
-  "version": "2.0.4",
-  "notes": "- Mesai bitişinden sonra çıkış yapıldığında günün süresi artık son çıkış saatinde sabitlenir.\n- Haftanın önceki günlerinde eksik süre varsa Gün sekmesinde bu eksiği kapatmak için gereken çıkış saati gösterilir.\n- Günlere \"Raporlu\" işareti eklenebilir; hesaplamada tam gün izin gibi değerlendirilir.\n- Ay görünümünde 60 dakikaya kadar eksik günler sarı, daha fazla eksik günler kırmızı, çıkış kaydı bulunmayan günler gri gösterilir.\n- Ay görünümünde ayın 20'sinden sonraki günlerin kayıtsız görünmesine yol açan hata giderildi.\n- Yemek menüsünde oklar ile haftanın diğer çalışma günlerinin menüsü görüntülenebilir.",
-  "pub_date": "2026-11-16T08:00:56Z",
+  "version": "2.0.5",
+  "notes": "- macOS: Güncellemelerden sonra çıkan şifre sorma ekranı kaldırıldı. Bu güncellemede bir kez sorulabilir; \"Her Zaman İzin Ver\"i seçin. Bir daha sorulmaz.\n- Kartımı unuttum: PDKS'de giriş kaydı yoksa Gün sekmesinde görünür. Giriş ve çıkış saatinizi elle girebilirsiniz.\n- Web sitemiz yayında: https://trtatlas.mucahitpuren.com\n- Hafta ve Ay görünümünde güne sağ tıklayarak saatleri elle girebilirsiniz.\n- Görevli olduğunuz günleri sağ tıklayıp \"Görevli\" olarak işaretleyebilirsiniz.\n- Uykudan sonra otomatik PDKS girişi artık durmuyor.\n- Anonim kullanım sayımı eklendi. Kişisel bilgi veya PDKS verisi gönderilmez.",
+  "pub_date": "2026-11-28T10:42:04Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnE5ZGdnQXhhTzBTNEJPTmNBYXhTcE5HNXRiN1dVbS84U1ZxQm12OVM1M0VTMDV3NmxIMkNwZGR2Z0YvQVRQbFMwaWF4Z2J4eHAydUN2b1ZuUXpNMXcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk0ODE2MDQ1CWZpbGU6VFJUIEF0bGFzXzIuMC40X3g2NC1zZXR1cC5leGUJdmVyc2lvbjoyLjAuNApNVE4yN0pzeWV4ck9Uc29keEVMNmVXNUVRMXhsbDZsZGlVcFhTTnU2MnU4S2xzbVRBWDZXK0RsOHVvUVdDYmJrMkNTM0xldnBoVE1kVHhSSThQSXBEUT09Cg==",
-      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v2.0.4/TRT-Atlas-Setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTmhLTWE5TWZVdnY0a000cDFabm1JOHZ5bk9QQ28rNmVUZU1oZ0F4NHptSDFwdE1BNHA4a3hJcnFYOTJ5ZTlwR1g2WU1VdUpSRkRuc1loYy9JQjc5OWtWOXlyVFNyWVFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzk1ODYyNTIwCWZpbGU6VFJUIEF0bGFzXzIuMC41X3g2NC1zZXR1cC5leGUJdmVyc2lvbjoyLjAuNQpiTEhLT3plTk0yUXA2ZEdBTzZMTnptRExjLzIzbHBqUko5MXJJL0hKZzZVcERIOE1ubFZKeHc3Qi9FM01SRWhJekF5WTJJK1V4QitqeU9LUSt2MmxCUT09Cg==",
+      "url": "https://github.com/mucahitpuren/trt-atlas/releases/download/v2.0.5/TRT-Atlas-Setup.exe"
     }
   }
 }
