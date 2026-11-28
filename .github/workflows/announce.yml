@@ -45,6 +45,10 @@ on:
         type: choice
         options: ['Hepsi', 'macOS', 'Windows']
         default: 'Hepsi'
+      link:
+        description: 'Bağlantı (isteğe bağlı, http:// ya da https://; 2.0.5 ve sonrası düğme olarak gösterir)'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -69,6 +73,7 @@ jobs:
       LEVEL: ${{ inputs.level }}
       HOURS: ${{ inputs.hours }}
       PLATFORM: ${{ inputs.platform }}
+      LINK: ${{ inputs.link }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -88,10 +93,18 @@ jobs:
             UNTIL="$(date -u -v+"${HOURS}"H +%Y-%m-%dT%H:%M:%SZ)"
             case "$LEVEL" in Bilgi) LEVEL_ID=info ;; Kritik) LEVEL_ID=critical ;; *) LEVEL_ID=warning ;; esac
             case "$PLATFORM" in macOS) PLATFORMS='["macos"]' ;; Windows) PLATFORMS='["windows"]' ;; *) PLATFORMS='[]' ;; esac
+            LINK="${LINK:-}"
+            LINK="${LINK#"${LINK%%[![:space:]]*}"}"
+            LINK="${LINK%"${LINK##*[![:space:]]}"}"
+            if [ -n "$LINK" ]; then
+              [[ "$LINK" =~ ^https?://[^[:space:]]+$ ]] && [ "${#LINK}" -le 500 ] \
+                || { echo "Bağlantı http:// ya da https:// ile başlayan bir adres olmalı."; exit 1; }
+            fi
             jq -n --arg published "$NOW" --arg id "a-$(date -u +%Y%m%d%H%M%S)" --arg level "$LEVEL_ID" \
               --arg title "$TITLE" --arg body "$BODY" --arg until "$UNTIL" --argjson platforms "$PLATFORMS" \
+              --arg link "$LINK" \
               '{published: $published, announcements: [{id: $id, level: $level, title: $title, body: $body,
-                until: $until, platforms: $platforms}]}' > announcements.json
+                until: $until, platforms: $platforms} + (if $link == "" then {} else {link: $link} end)]}' > announcements.json
             echo "publishing until $UNTIL"
           fi
           cat announcements.json
